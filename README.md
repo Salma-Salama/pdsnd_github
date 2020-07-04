@@ -11,6 +11,8 @@ Therefore, the company eased out the rental process as people can rent a bike fr
 
 Now the decision makers want to perform some analysis on the business to be able to use it for the next phase. For example, the want to know the peak timings; day of the week, hour and month.  
 
+### Analysis Description
+The application build to analyze this project is built in an interactive way, each city has its own analysis, so you just enter the city you want to analyze and if you want to apply any filters and the data will be analyzed accordingly.
 
 ### Files used
 chicago.csv \
