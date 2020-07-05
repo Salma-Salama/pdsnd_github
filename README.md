@@ -15,9 +15,11 @@ Now the decision makers want to perform some analysis on the business to be able
 The application build to analyze this project is built in an interactive way, each city has its own analysis, so you just enter the city you want to analyze and if you want to apply any filters and the data will be analyzed accordingly.
 
 ### Files used
-chicago.csv \
-new_york_city.csv\
-washington.csv
+Statistical analysis was performed using these datasets:\
+[Chicago dataset](data/chicago.csv) \
+[New York dataset](data/new_york_city.csv)\
+[Washington dataset](data/washington.csv)
 
 ### Credits
-You will find all the resources I have used referenced in this file: readme.txt
+You will find all the resources I have used referenced in this file: \
+[readme.txt](https://github.com/Salma-Salama/pdsnd_github/blob/master/readme.txt.txt)
