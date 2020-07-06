@@ -4,9 +4,8 @@ import pandas as pd
 import numpy as np
 
 # A dictionary containing city name and its data file
-CITY_DATA = { 'chicago': 'chicago.csv',
-			  'new york city': 'new_york_city.csv',
-			  'washington': 'washington.csv' }
+CITY_DATA = {'chicago': 'chicago.csv', 'new york city': 'new_york_city.csv', 'washington':
+'washington.csv'}
 
 # A dictionary highlighting all the valid months to be taken as inputs
 valid_months = {'January': '1', 'February': '2', 'March': '3', 'April': '4', 'May': '5', 'June': '6'}
@@ -23,31 +22,19 @@ def get_filters():
 	str city, str month, str day"""
 	print("Hello! Let's explore some US bikeshare data!")
 	# Getting the user input of the city
-	answer = True
-	while answer:
-		city = input("Which city do you want to analyze? ")
-		if city == 'ny' or city == 'New York' or city == 'NY':
-			input_city = CITY_DATA['new york city']
-			print("city is {} ".format(city))
-			break
-		elif city == 'wa' or city == 'WA' or city == 'Washington Dc':
-			input_city = CITY_DATA['washington']
-			print("city is {} ".format(city))
-			break
-		elif city == 'chica' or city == 'Chicago' or 'chicago':
-			input_city = CITY_DATA['chicago']
-			print("city is {} ".format(city))
-			break
-		elif city in CITY_DATA:
-			answer = False
+	while True:
+		city = input("Which city do you want to analyze? Only Chicago, New York City, and Washington are available. Please choose one of them ").lower()
+		if city in CITY_DATA:
 			print("You chose to view the results for {}".format(city.lower()))
+			key = city
+			input_city = CITY_DATA[key]
 			break
-		elif city not in CITY_DATA:
+		elif city not in list(CITY_DATA.values()):
 			print("Oops, unfortunately this city isn't available")
 			print("Please type a valid city")
 			continue
 	# Applying month filters
-	while 1:
+	while True:
 		month = input("Which month do you want to filter by? If you don't want to apply any filters, please type all. ").capitalize()
 		if month.lower() == 'all':
 			print("You chose to apply no filters.")
@@ -60,7 +47,7 @@ def get_filters():
 			print("You chose to view the results for the following month: {}".format(month))
 			break
 	# Applying day filters
-	while answer:
+	while True:
 		day = input("Which day do you want to filter by? If you don't want to apply any filters, please type all. ").capitalize()
 		if day.lower() == 'all' :
 			print("You chose to apply no filter")
