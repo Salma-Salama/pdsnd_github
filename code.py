@@ -2,6 +2,7 @@ import datetime
 import time
 import pandas as pd
 import numpy as np
+import os
 
 # A dictionary containing city name and its data file
 CITY_DATA = { 'chicago': 'chicago.csv',
@@ -86,8 +87,12 @@ def load_data(input_city, month, day):
     Returns:
     df - Pandas DataFrame containing city data filtered by month and day
     """
+    # Getting the current working directory
+    os.getcwd()
+    # Viewing its list
+    os.listdir(os.getcwd())
     # Reading the csv file based on user inputs
-    df = pd.read_csv('{}'.format(input_city))
+    df = pd.read_csv('data/{}'.format(input_city))
     # Adding some new columns to the DataFrame
     df['Start Time']= pd.to_datetime(df['Start Time'])
     df['date']= df['Start Time'].dt.date
