@@ -2,6 +2,7 @@ import datetime
 import time
 import pandas as pd
 import numpy as np
+import os
 
 # A dictionary containing city name and its data file
 CITY_DATA = {'chicago': 'chicago.csv', 'new york city': 'new_york_city.csv', 'washington':
@@ -73,8 +74,12 @@ def load_data(input_city, month, day):
     Returns:
     df - Pandas DataFrame containing city data filtered by month and day
     """
+    # Getting the current working directory
+    os.getcwd()
+    # Viewing its list
+    os.listdir(os.getcwd())
     # Reading the csv file based on user inputs
-    df = pd.read_csv('{}'.format(input_city))
+    df = pd.read_csv('data/{}'.format(input_city))
     # Adding some new columns to the DataFrame
     df['Start Time']= pd.to_datetime(df['Start Time'])
     df['date']= df['Start Time'].dt.date
@@ -146,9 +151,12 @@ def time_stats(df):
     # Display the most common month
     common_month= df['month'].mode()[0]
     print("The most common month is: \n" , common_month)
-    # Display the most common day of week
+    # Display the most common day of the month
     common_day= df['day'].mode()[0]
-    print("The most common day is: \n", common_day)
+    print("The most common day in the month is: \n", common_day)
+    # Display the most common day of the week
+    common_dayname= df['d_name'].mode()[0]
+    print("The most common day in the week is: \n", common_dayname)
     # Display the most common start hour
     df['hour']= df['Start Time'].dt.hour
     common_hour= df['hour'].mode()[0]
